@@ -10,20 +10,35 @@ public class MoodAnalyser {
     /**
      * Default constructor
      */
+
     public MoodAnalyser(){
 
     }
+
+    /**Parameterized constructor to assign value for the string message
+     *
+     * @param message
+     */
+
     public MoodAnalyser(String message){
         this.message = message;
     }
+
     /**
      * this method is to analyse the mood
      * @return sad or happy
      */
+
     public String analyseMood() {
         //Checking the condition
-        if (message.contains("Sad")){
-            return "Sad";
+        try {
+            if (message == "")
+                throw new NullPointerException("Null mood");
+            if (message.contains("Sad")) {
+                return "Sad";
+            }
+        }catch (NullPointerException e){
+            System.out.println(e);
         }
         return "Happy";
     }
